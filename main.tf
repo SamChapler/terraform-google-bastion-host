@@ -86,10 +86,10 @@ resource "google_compute_instance_from_template" "bastion_vm" {
   }
 
   source_instance_template = module.instance_template.self_link
-}
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false
   }
+}
 
 module "iap_tunneling" {
   source = "./modules/iap-tunneling"
